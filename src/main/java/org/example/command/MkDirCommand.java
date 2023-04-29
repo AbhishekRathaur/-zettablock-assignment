@@ -25,5 +25,7 @@ public class MkDirCommand extends FileLogger implements Command {
         else{
             trie.addChildren(command);
         }
+        close();
+
     }
 }

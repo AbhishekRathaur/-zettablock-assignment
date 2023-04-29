@@ -35,7 +35,7 @@ public class TreeNode {
         return this.parent ;
     }
 
-    public String getTotalPath() {
+    public String getFullPath() {
         return this.totalPath ;
     }
 }

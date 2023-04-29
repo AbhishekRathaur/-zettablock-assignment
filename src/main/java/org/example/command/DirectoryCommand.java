@@ -5,6 +5,7 @@ import org.example.ds.Trie;
 import org.example.logging.FileLogger;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Set;
 
 public class DirectoryCommand extends FileLogger implements Command {
@@ -18,20 +19,20 @@ public class DirectoryCommand extends FileLogger implements Command {
     @Override
     public void execute() {
         log("Command: dir");
-        log("Directory of "+ trie.getCurrent().getCurrentPath()+":");
+        log("Directory of "+ trie.getCurrent().getFullPath()+":");
         Set<String> children = trie.getCurrent().getChildren();
         if(children.size()==0)
             log("No subdirectories");
         else{
-//            Iterator itr = hs.iterator();
-//
-//            // check element is present or not. if not loop will
-//            // break.
-//            while (itr.hasNext()) {
-//                System.out.println(itr.next());
-//            }
-            // will format this later according to output
-            log(children.toString());
+            Iterator itr = children.iterator();
+
+            StringBuilder result = new StringBuilder();
+            while (itr.hasNext()) {
+                result.append(itr.next()+ "   ");
+            }
+            log(result.toString());
         }
+        close();
+
     }
 }

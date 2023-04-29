@@ -24,7 +24,7 @@ public class Trie {
     }
 
     public void addChildren(String path) {
-        TreeNode treeNode = new TreeNode(path, this.curr.getTotalPath()+"/"+ path);
+        TreeNode treeNode = new TreeNode(path, this.curr.getFullPath()+ "\\"+ path);
         curr.addChildren(treeNode);
         treeNode.setParent(curr);
     }

@@ -10,7 +10,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
+        File file = new File("output.txt");
+        file.delete();
         TreeNode treeNode = new TreeNode("root", "root");
         Trie trie = new Trie(treeNode);
         CommandFactory commandFactory = new CommandFactory(trie);

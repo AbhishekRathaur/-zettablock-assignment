@@ -24,5 +24,6 @@ public class CDCommand extends FileLogger implements Command {
         else{
             trie.moveDir(command);
         }
+        close();
     }
 }

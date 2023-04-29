@@ -22,5 +22,7 @@ public class UpCommand extends FileLogger implements Command {
         else{
             trie.moveUp();
         }
+        close();
+
     }
 }
