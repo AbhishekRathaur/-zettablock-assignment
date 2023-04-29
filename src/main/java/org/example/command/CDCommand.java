@@ -1,9 +1,28 @@
 package org.example.command;
 
-import org.example.command.Command;
-import org.example.ds.TreeNode;
+import org.example.ds.Trie;
+import org.example.logging.FileLogger;
 
-public class CDCommand implements Command {
-    public CDCommand(TreeNode curr, String command) {
+import java.io.IOException;
+import java.util.Set;
+
+public class CDCommand extends FileLogger implements Command {
+    private final String command;
+    private final Trie trie;
+    public CDCommand(Trie trie, String command) throws IOException {
+        super();
+        this.trie = trie ;
+        this.command = command;
+    }
+
+    @Override
+    public void execute() {
+        log("Command: cd "+command);
+        Set<String> children = trie.getCurrent().getChildren();
+        if(children.size()==0 || !children.contains(command))
+            log("Subdirectory does not exist");
+        else{
+            trie.moveDir(command);
+        }
     }
 }

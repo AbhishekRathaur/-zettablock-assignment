@@ -1,4 +1,4 @@
-package org.example.command;
+package org.example.exception;
 
 public class NotValidCommandException extends Exception {
     public NotValidCommandException(String ex){

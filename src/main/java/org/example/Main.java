@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.command.Command;
 import org.example.ds.TreeNode;
+import org.example.ds.Trie;
 import org.example.factory.CommandFactory;
 
 import java.io.File;
@@ -9,11 +10,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        CommandFactory commandFactory = new CommandFactory();
 
-        TreeNode treeNode = new TreeNode("");
+        TreeNode treeNode = new TreeNode("root", "root");
+        Trie trie = new Trie(treeNode);
+        CommandFactory commandFactory = new CommandFactory(trie);
+
         try {
-            File myObj = new File("filename.txt");
+            File myObj = new File("input.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String line = myReader.nextLine();
