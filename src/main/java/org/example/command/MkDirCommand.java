@@ -19,7 +19,7 @@ public class MkDirCommand extends FileLogger implements Command {
     @Override
     public void execute() {
         log("Command: mkdir "+command);
-        Set<String> children = trie.getCurrent().getChildren();
+        Set<String> children = trie.getCurrent().getChildrenKeys();
         if(children.size()!=0 && children.contains(command))
             log("Subdirectory already exists");
         else{

@@ -5,6 +5,6 @@ import org.example.command.Command;
 public class InvalidCommand implements Command {
     @Override
     public void execute() {
-
+        System.out.println("Invalid Command");
     }
 }

@@ -6,12 +6,13 @@ import java.util.Set;
 
 public class TreeNode {
     private  TreeNode parent ;
-    Map<String, TreeNode> children ;
+    private Map<String, TreeNode> children ;
     private final String currentPath ;
-    private final String totalPath ;
+
+    private String fullPath;
     public TreeNode(String currentPath, String totalPath){
         this.currentPath = currentPath;
-        this.totalPath = totalPath;
+        this.fullPath = totalPath;
         this.children = new HashMap<>();
     }
 
@@ -19,7 +20,7 @@ public class TreeNode {
         return currentPath;
     }
 
-    public Set<String> getChildren() {
+    public Set<String> getChildrenKeys() {
         return children.keySet();
     }
 
@@ -36,6 +37,18 @@ public class TreeNode {
     }
 
     public String getFullPath() {
-        return this.totalPath ;
+        return this.fullPath;
+    }
+
+    public void setChildren(Map<String, TreeNode> children) {
+        this.children = children;
+    }
+
+    public Map<String, TreeNode> getChildren() {
+        return this.children ;
+    }
+
+    public void setFullPath(String fullPath) {
+        this.fullPath = fullPath;
     }
 }

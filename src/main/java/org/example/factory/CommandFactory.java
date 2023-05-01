@@ -23,6 +23,9 @@ public class CommandFactory {
            else if(commands[0].equals("up")){
                return new UpCommand(trie);
            }
+           else if(commands[0].equals("tree")){
+               return new TreeCommand(trie);
+           }
            else if(commands.length==2){
                if(commands[0].equals("cd")){
                    return new CDCommand(trie , commands[1]);
@@ -30,6 +33,9 @@ public class CommandFactory {
                else if(commands[0].equals("mkdir")){
                    return new MkDirCommand(trie, commands[1]);
                }
+           }
+           else if(commands.length==3 && commands[0].equals("mv")){
+               return new MvCommand(trie, commands[1], commands[2]);
            }
            else{
                throw  new NotValidCommandException("Invalid line");

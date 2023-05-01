@@ -5,8 +5,7 @@ import org.example.ds.Trie;
 import org.example.logging.FileLogger;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class DirectoryCommand extends FileLogger implements Command {
 
@@ -20,7 +19,8 @@ public class DirectoryCommand extends FileLogger implements Command {
     public void execute() {
         log("Command: dir");
         log("Directory of "+ trie.getCurrent().getFullPath()+":");
-        Set<String> children = trie.getCurrent().getChildren();
+        List<String> children = new ArrayList<>(trie.getCurrent().getChildrenKeys());
+        Collections.sort(children);
         if(children.size()==0)
             log("No subdirectories");
         else{
